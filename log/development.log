@@ -99,3 +99,88 @@ Migrating to CreatePosts (20170701124654)
   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5105801328412218315)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/posts" for 127.0.0.1 at 2017-07-01 14:32:59 +0100
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (6.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 294ms (Views: 268.4ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-07-01 14:33:47 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 32ms (Views: 29.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-07-01 14:34:50 +0100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 214ms (Views: 198.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-07-01 14:41:14 +0100
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 365ms (Views: 348.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-07-01 14:41:16 +0100
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 83ms (Views: 41.5ms | ActiveRecord: 15.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-07-01 14:41:20 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7cTODwo8YEH9G1knIm5u5g4UMSf+kn8U1ICcZSgchygrugnIqioBWUX9eSMbh5dj12Hl/q6z9fOUbIJLXuHcUA==", "post"=>{"caption"=>"Hello world!"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "posts" ("caption", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["caption", "Hello world!"], ["created_at", "2017-07-01 13:41:20.168683"], ["updated_at", "2017-07-01 13:41:20.168683"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 12ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-07-01 14:41:20 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 41ms (Views: 36.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2017-07-01 14:41:23 +0100
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 43ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2017-07-01 14:41:27 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bc3mmq9D1XVOvfAL/YJXNwMAJ0zaH2rLq7cyuXThYMKrsyFdD1W0bfZb0A/Ea66y2nXzlYo+4CzrWyyXAhw7ug==", "post"=>{"caption"=>"Hello you!"}, "commit"=>"Submit"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.2ms)[0m  [1m[32mINSERT INTO "posts" ("caption", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["caption", "Hello you!"], ["created_at", "2017-07-01 13:41:27.412061"], ["updated_at", "2017-07-01 13:41:27.412061"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 17ms (ActiveRecord: 10.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-07-01 14:41:27 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 1.5ms)
+
+
