@@ -43,6 +43,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.5'
   gem 'orderly'
+  gem 'simplecov', :require => false
+  gem 'simplecov-console'
 end
 
 group :development do
