@@ -1,5 +1,10 @@
 <% @posts.each do |post| %>
-  <%= simple_format(post.caption) %>
+  <div class="post">
+    <img src="<%= post.picture.url %>">
+    <p>
+    <%= simple_format(post.caption) %>
+    </p>
+  </div>
 <% end %>
 
 <%= link_to "New post", new_post_path %>
