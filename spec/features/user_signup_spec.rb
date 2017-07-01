@@ -6,7 +6,7 @@ RSpec.feature 'Users', type: :feature do
     click_link('Sign up')
     fill_in('Username', with: 'test user')
     fill_in('Password', with: 'test_password')
-    fill_in('email',    with: 'test@test.com')
+    fill_in('Email',    with: 'test@test.com')
     click_button('Submit')
     expect(page).to have_content("test user's profile")
   end

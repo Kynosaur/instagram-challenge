@@ -302,3 +302,27 @@ Migrating to AddPasswordDigestToUsers (20170701155705)
   [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(5105801328412218315)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/posts" for 127.0.0.1 at 2017-07-01 17:29:16 +0100
+  [1m[35m (7.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (9.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 339ms (Views: 306.6ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-07-01 17:29:19 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 97ms (Views: 55.9ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-07-01 17:31:18 +0100
+  [1m[35m (8.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 316ms (Views: 264.0ms | ActiveRecord: 6.2ms)
+
+
