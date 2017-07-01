@@ -1,7 +1,9 @@
-<%= link_to "Sign up", new_user_path %>
+<%= link_to 'Sign up',  new_user_path %>
+<%= link_to 'Log in',   login_path %>
+<%= link_to 'Log out',  logout_path %>
 
 <% @posts.reverse.each do |post| %>
-  <div class="post">
+  <div class='post'>
     <img src="<%= post.picture.url %>">
     <p>
     <%= simple_format(post.caption) %>
@@ -9,4 +11,4 @@
   </div>
 <% end %>
 
-<%= link_to "New post", new_post_path %>
+<%= link_to 'New post', new_post_path %>
