@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it { is_expected.to be }
+  it { is_expected.to have_many :posts }
+  it { is_expected.to have_many :comments }
 
   it 'Can create a new user' do
     user = User.create(name: 'Test_user', password: 'test_password', email: 'test@test.com')
