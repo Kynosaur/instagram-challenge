@@ -598,3 +598,86 @@ Processing by SessionsController#create as HTML
 Completed 200 OK in 53ms (Views: 50.0ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/users/new" for 127.0.0.1 at 2017-07-02 11:25:41 +0100
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 253ms (Views: 228.1ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-07-02 11:25:44 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wPk4N8Vxs7ifDzO6a97vscb1hrPEZ3BcGXSIfeNXRhq/xxKtF067JPGGjzqygs7YOeWBlQ409yJ9nvvjs/OGgQ==", "user"=>{"name"=>"d,fjhbg", "password"=>"[FILTERED]", "email"=>"ljhbdfjv"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "d,fjhbg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ljhbdfjv"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "d,fjhbg"], ["email", "ljhbdfjv"], ["created_at", "2017-07-02 10:25:44.650595"], ["updated_at", "2017-07-02 10:25:44.650595"], ["password_digest", "$2a$10$mCJuaos/B3ddo0FFerKZhuqGKySsgSk1rwLEb8c6Rc2.12e8l0RPe"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 93ms (ActiveRecord: 12.1ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-07-02 11:25:44 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 29ms (Views: 23.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (161.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "instagram_development"[0m
+  [1m[35m (190.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "instagram_test"[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5105801328412218315);[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20170701124654)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "caption" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170701124654"]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPictureToPosts (20170701135535)
+  [1m[35m (5.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "posts" ADD "picture" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170701135535"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20170701154634)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170701154634"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPasswordDigestToUsers (20170701155705)
+  [1m[35m (6.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" text[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170701155705"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-07-02 10:26:07.301978"], ["updated_at", "2017-07-02 10:26:07.301978"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5105801328412218315)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-07-02 11:30:59 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 261ms (Views: 239.8ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-07-02 11:31:01 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 139ms (Views: 67.1ms | ActiveRecord: 23.3ms)
+
+

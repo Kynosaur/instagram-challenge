@@ -10,4 +10,10 @@ RSpec.feature 'Users', type: :feature do
     click_button('Submit')
     expect(page).to have_content("test user's profile")
   end
+
+  scenario 'User attempts to sign up with something which is not an email address' do
+    sign_up('not_an_email', 'password', 'name')
+    expect(current_path).to eq('/users/new')
+    expect(page).to have_content("Please include an '@' in the email address")
+  end
 end
