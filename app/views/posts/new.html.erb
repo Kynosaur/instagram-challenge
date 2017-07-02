@@ -1,9 +1,17 @@
-<%= form_for @post do |form| %>
-  <%= form.label :caption %>
-  <%= form.text_field :caption %>
+<% if current_user %>
+  <%= form_for @post do |form| %>
+    <%= form.label :caption %>
+    <%= form.text_field :caption %>
 
-  <%= form.label :picture %>
-  <%= form.file_field :picture %>
+    <%= form.label :picture %>
+    <%= form.file_field :picture %>
 
-  <%= form.submit 'Submit' %>
-<% end%>
+    <%= form.submit 'Submit' %>
+  <% end%>
+<% else %>
+  Please
+  <%= link_to 'sign up', new_user_path %>
+  or
+  <%= link_to 'log in', login_path %>
+  to post
+<% end %>

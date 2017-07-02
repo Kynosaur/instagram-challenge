@@ -27,7 +27,7 @@ RSpec.feature 'Posts', type: :feature do
     visit posts_path
     expect(page).not_to have_link('New post')
     visit new_post_path
-    expect(page).not_to have_button('Submit')
-    expect(page).to have_content('Please sign up or log in to create a new post')
+    expect(page).not_to have_field('comment_body')
+    expect(page).to have_content('Please sign up or log in to post')
   end
 end
