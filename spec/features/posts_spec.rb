@@ -22,4 +22,12 @@ RSpec.feature 'Posts', type: :feature do
     create_new_post('Hello test!')
     expect(page).to have_content('Posted by test user')
   end
+
+  scenario 'User tries to make a post without being signed in and sees an error message' do
+    visit posts_path
+    expect(page).not_to have_link('New post')
+    visit new_post_path
+    expect(page).not_to have_button('Submit')
+    expect(page).to have_content('Please sign up or log in to create a new post')
+  end
 end
