@@ -1,0 +1,23 @@
+<div class="post">
+  <img src="<%= @post.picture.url %>">
+
+  <p>
+    <%= simple_format(@post.caption) %>
+  </p>
+</div>
+
+Comments
+<div class="comments">
+  <ul>
+  <% @post.comments.each do |comment| %>
+    <li><%= simple_format(comment.body) %></li>
+  <% end %>
+  </ul>
+</div>
+
+<%= form_for([@post, @post.comments.build]) do |form| %>
+  <%= form.label :body, "Add a comment" %>
+  <%= form.text_area :body %>
+
+  <%= form.submit 'Submit' %>
+<% end%>
