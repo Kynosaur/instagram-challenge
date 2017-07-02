@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.valid?
+      log_in(user)
       redirect_to user
     else
       flash[:danger] = "Sorry, that doesn't look like an email address... please try again."
