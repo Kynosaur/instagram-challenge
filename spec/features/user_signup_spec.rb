@@ -16,5 +16,6 @@ RSpec.feature 'Users', type: :feature do
     expect(current_path).to eq('/users/new')
     user = User.find_by(email: 'not_an_email')
     expect(user).not_to be
+    expect(page).to have_content("Sorry, that doesn't look like an email address... please try again.")
   end
 end
