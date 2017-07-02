@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     if user.valid?
       redirect_to user
     else
-      redirect_to new_user_url
+      flash[:danger] = "Sorry, that doesn't look like an email address... please try again."
+      redirect_to new_user_path
     end
   end
 
