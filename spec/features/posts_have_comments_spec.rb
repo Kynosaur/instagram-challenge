@@ -19,4 +19,13 @@ RSpec.feature 'Comments', type: :feature do
     expect(page).not_to have_field('comment_body')
     expect(page).to have_content('Sign up or log in to add a comment')
   end
+
+  scenario 'Comments show their poster next to them in the view' do
+    sign_up('test@test.com', 'password', 'test user')
+    create_new_post('Hello test!')
+    click_link('Comments')
+    fill_in('comment_body', with: 'Hello post!')
+    click_button('Submit')
+    expect(page).to have_content('Comment by test user')
+  end
 end
