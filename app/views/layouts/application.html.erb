@@ -9,6 +9,13 @@
   </head>
 
   <body>
+
+    <div class="flash">
+      <% flash.each do |message_type, message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
     <div class="navbar">
       <%= link_to "Home", posts_url %>
       <%= link_to "Log in", login_path %>
