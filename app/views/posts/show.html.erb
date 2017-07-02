@@ -15,9 +15,16 @@ Comments
   </ul>
 </div>
 
-<%= form_for([@post, @post.comments.build]) do |form| %>
-  <%= form.label :body, "Add a comment" %>
-  <%= form.text_area :body %>
+<% if current_user %>
+  <%= form_for([@post, @post.comments.build]) do |form| %>
+    <%= form.label :body, "Add a comment" %>
+    <%= form.text_area :body %>
 
-  <%= form.submit 'Submit' %>
-<% end%>
+    <%= form.submit 'Submit' %>
+  <% end %>
+<% else %>
+  <%= link_to 'Sign up', new_user_path %>
+  or
+  <%= link_to 'log in', login_path %>
+  to add a comment
+<% end %>

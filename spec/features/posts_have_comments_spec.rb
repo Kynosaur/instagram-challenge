@@ -17,6 +17,6 @@ RSpec.feature 'Comments', type: :feature do
     visit posts_path
     click_link('Comments')
     expect(page).not_to have_field('comment_body')
-    expect(page).to have_content('Sign up or log in to comment')
+    expect(page).to have_content('Sign up or log in to add a comment')
   end
 end
