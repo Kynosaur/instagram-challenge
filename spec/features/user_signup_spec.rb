@@ -14,6 +14,7 @@ RSpec.feature 'Users', type: :feature do
   scenario 'User attempts to sign up with something which is not an email address' do
     sign_up('not_an_email', 'password', 'name')
     expect(current_path).to eq('/users/new')
-    expect(page).to have_content("Please include an '@' in the email address")
+    user = User.find_by(email: 'not_an_email')
+    expect(user).not_to be
   end
 end

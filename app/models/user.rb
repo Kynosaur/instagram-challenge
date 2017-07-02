@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 
-  validates :name, :email, presence: true
+  validates :name, presence: true
   validates :name, :email, uniqueness: true
+  validates :email, presence: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
 
   has_secure_password
 

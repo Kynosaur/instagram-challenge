@@ -22,4 +22,9 @@ RSpec.describe User, type: :model do
     user = User.create(name: 'test_user', password: '', email: 'test@test.com')
     expect(user).not_to be_valid
   end
+
+  it 'Will not create a new user with an invalid email address' do
+    user = User.create(name: 'test_user', password: 'test_password', email: 'not_an_email')
+    expect(user).not_to be_valid
+  end
 end
