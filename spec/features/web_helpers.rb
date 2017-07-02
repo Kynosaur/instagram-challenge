@@ -14,3 +14,10 @@ def sign_up(email, password, name)
   fill_in('Username', with: name)
   click_button('Submit')
 end
+
+def log_in(email, password)
+  visit login_path
+  fill_in('Email',    with: email)
+  fill_in('Password', with: password)
+  click_button('Submit')
+end

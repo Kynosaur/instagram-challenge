@@ -5,10 +5,16 @@ RSpec.feature 'User log in', type: :feature do
     sign_up('test@test.com', 'test_password', 'test user')
     visit posts_path
     click_link('Log out')
-    click_link('Log in')
-    fill_in('Email',    with: 'test@test.com')
-    fill_in('Password', with: 'test_password')
-    click_button('Submit')
+    log_in('test@test.com', 'test_password')
     expect(page).to have_content("test user's profile")
+  end
+
+  it "Shows a login error for incorrect input for the appropriate time" do
+    sign_up('test@test.com', 'test_password', 'test user')
+    click_link('Log out')
+    log_in('test@test.com', 'wrong_password')
+    expect(page).to have_content('Incorrect email or password')
+    visit posts_path
+    expect(page).not_to have_content('Incorrect email or password')
   end
 end

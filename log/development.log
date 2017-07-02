@@ -456,3 +456,96 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 37ms (Views: 33.9ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/login" for 127.0.0.1 at 2017-07-02 11:11:40 +0100
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 237ms (Views: 227.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-02 11:11:45 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JEYY6RLKD3KGAYGBjwKcrBDINpfPKKe3IHxM0j6x224Gak5QdYun32q4+JRLJaNAW1REgKEdhsw9A8TjCugHBA==", "session"=>{"email"=>"kye@test.com", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kye@test.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 104ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-07-02 11:11:45 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-07-02 11:11:46 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9KxxeQaa4EDHLKoRnsxf5eQJuBStgwUEqYthGFmjhkbWgCfAYdtI7SuV0wRa62AJr5XKA8O2JH+09OkpbfpaLA=="}
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2017-07-02 11:11:46 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 48ms (Views: 25.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-07-02 11:11:47 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 42ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-02 11:11:50 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rVBVqg0hObtKljUH3Y/ETarl679GZcUZCs5pF3fE3THj2ECqWO7E0zYCuhZGRa/X/7fwdufqrcmP70Jwq0sFuA==", "session"=>{"email"=>"jhfg", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jhfg"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-02 11:11:54 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iWLXhF0Y8c7CdupmZ+OmVOGGEjTp+STrLC2PGiqhgX2rToE9OllZYy7Pk3OjxJm4qhpgI4fMBZAxUgcrHvhdFw==", "session"=>{"email"=>"jghf", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jghf"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 53ms (Views: 50.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-02 11:11:56 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I6eOeMfFN11Lq7Gx4EkPhE/twMMF5H4N6NJGs7cfA1UBi9jBoISf8KcSyKQkbjBoBHGy1GvRX3b1rc6Cg0bfPw==", "session"=>{"email"=>"jyjgfhb@jdhfbgdf,n", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jyjgfhb@jdhfbgdf,n"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 37ms (Views: 35.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-02 11:12:00 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IB0PP6d9H1dxEYu1ONlUypihUzAyRxr51FLLTj1nuuUCMVmGwDy3+p2o8qD8/msm0z0hJ1xyO4LJLUN/CT5mjw==", "session"=>{"email"=>"kye@test.com", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kye@test.com"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 95ms (Views: 22.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-02 11:12:37 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HtMdhVGFaEkZItspSFA0hfsZ/lBh28zhsSgTUwRB5/g8/0s8NsTA5PWbojyMdwtpsIWMRw/u7ZqsV5tiMBg7kg==", "session"=>{"email"=>"jujdhfgn", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jujdhfgn"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.2ms)
+
+
