@@ -1,16 +1,17 @@
 <div class="post">
   <img src="<%= @post.picture.url %>">
 
-  <p>
-    <%= simple_format(@post.caption) %>
-  </p>
+  <p><%= @post.caption %></p>
 </div>
 
 Comments
 <div class="comments">
   <ul>
   <% @post.comments.each do |comment| %>
-    <li><%= simple_format(comment.body) %></li>
+    <li>
+      <p class='comment_body'><%= comment.body %></p>
+      <p class='commenter'><%= "Comment by #{comment.user.name}" %></p>
+    </li>
   <% end %>
   </ul>
 </div>
