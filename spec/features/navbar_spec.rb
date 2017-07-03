@@ -16,6 +16,6 @@ RSpec.feature 'Navbar', type: :feature do
     visit posts_path
     expect(page).to have_content('Hello, test user!')
     click_link('Log out')
-    expect(page).to have_content('Hello, test user!')
+    expect(page).not_to have_content('Hello, test user!')
   end
 end

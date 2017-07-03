@@ -17,6 +17,9 @@
     </div>
 
     <div class="navbar">
+      <% if current_user %>
+        Hello, <%= current_user.name %>!
+      <% end %>
       <%= link_to "Home", posts_url %>
       <%= link_to "Log in", login_path %>
       <%= link_to "Sign up", new_user_path %>
