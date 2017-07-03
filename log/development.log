@@ -1771,3 +1771,15 @@ Processing by LikesController#create as HTML
   [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["post_id", 1], ["created_at", "2017-07-03 07:16:43.816821"], ["updated_at", "2017-07-03 07:16:43.816821"]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT  "likes".* FROM "likes" WHERE "likes"."post_id" = $1 LIMIT $2[0m  [["post_id", 1], ["LIMIT", 11]]
+Started GET "/posts" for 127.0.0.1 at 2017-07-03 08:20:02 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/index.html.erb within layouts/application (71.6ms)
+Completed 200 OK in 285ms (Views: 249.2ms | ActiveRecord: 9.6ms)
+
+
