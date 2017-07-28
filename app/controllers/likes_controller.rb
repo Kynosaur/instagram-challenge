@@ -5,6 +5,7 @@ class LikesController < ApplicationController
       like = post.likes.build
       like.user = current_user
       like.save
+      p like
     end
     redirect_to posts_path
   end
